@@ -7,6 +7,7 @@ class PostList extends Component {
     this.props.fetchPosts();
   }
   render() {
+    console.log(this.props.posts);
     return (
       <div>
         <h1>PostList</h1>
@@ -15,7 +16,13 @@ class PostList extends Component {
   }
 }
 
-export default connect(null, { fetchPosts })(PostList);
+const mapStateToProps = state => {
+  return {
+    posts: state.posts
+  };
+};
+
+export default connect(mapStateToProps, { fetchPosts })(PostList);
 
 // GENARAL DATA LOADING WITH REDUX
 // Component gets rendered in the screen ex. PostList
