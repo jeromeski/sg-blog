@@ -5,7 +5,7 @@ import { createStore } from 'redux';
 import reducers from './reducers';
 
 import './index.css';
-import App from './App';
+import App from './components/App';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 ReactDOM.render(
