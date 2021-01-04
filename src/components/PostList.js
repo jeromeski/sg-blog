@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Card, Col } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { fetchPosts } from '../actions';
+import UserHeader from './UserHeader';
 
 class PostList extends Component {
   componentDidMount() {
@@ -9,33 +10,25 @@ class PostList extends Component {
   }
 
   renderList() {
-    return this.props.posts
-      .reverse()
-      .slice(2, 11)
-      .map(post => {
-        return (
-          <Col md={6} lg={4} key={post.id}>
-            <div className='blog-item'>
-              <Card>
-                <figure className='blog-thumb'>
-                  <a href='http://localhost:3000'>
-                    <img
-                      src='https://via.placeholder.com/150x300'
-                      alt={post.id}
-                    />
-                  </a>
-                </figure>
-                <Card.Body className='blog-content'>
-                  <h2 className='h5'>
-                    <a href='http://localhost:3000'>{post.title}</a>
-                  </h2>
-                  <p>{post.body}</p>
-                </Card.Body>
-              </Card>
-            </div>
-          </Col>
-        );
-      });
+    return this.props.posts.map(post => {
+      return (
+        <Col md={6} lg={4} key={post.id}>
+          <Card>
+            <Card.Img
+              variant='top'
+              src={'https://via.placeholder.com/295x160'}
+            />
+            <Card.Body>
+              <Card.Title>{post.title}</Card.Title>
+              <Card.Text>{post.body}</Card.Text>
+            </Card.Body>
+            <Card.Footer>
+              <UserHeader userId={post.userId} />
+            </Card.Footer>
+          </Card>
+        </Col>
+      );
+    });
   }
 
   render() {
