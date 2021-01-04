@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { Card, Col } from 'react-bootstrap';
 import { connect } from 'react-redux';
-import { fetchPosts } from '../actions';
+import { fetchUsersAndPosts } from '../actions';
 import UserHeader from './UserHeader';
 
 class PostList extends Component {
   componentDidMount() {
-    this.props.fetchPosts();
+    this.props.fetchUsersAndPosts();
   }
 
   renderList() {
@@ -42,7 +42,7 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { fetchPosts })(PostList);
+export default connect(mapStateToProps, { fetchUsersAndPosts })(PostList);
 
 // GENARAL DATA LOADING WITH REDUX
 // Component gets rendered in the screen ex. PostList
