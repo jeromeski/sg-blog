@@ -32,7 +32,6 @@ class PostList extends Component {
   }
 
   render() {
-    console.log(this.props.posts);
     return <React.Fragment>{this.renderList()}</React.Fragment>;
   }
 }
