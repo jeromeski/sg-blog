@@ -1,11 +1,14 @@
 import React from 'react';
+import { Container, Row } from 'react-bootstrap';
 import PostList from './PostList';
 
 const App = () => {
   return (
-    <div>
-      <PostList />
-    </div>
+    <Container>
+      <Row style={{ marginTop: '5rem' }}>
+        <PostList />
+      </Row>
+    </Container>
   );
 };
 
